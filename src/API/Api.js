@@ -9,7 +9,7 @@ function Api() {
     const [graphData, setGraphData] = useState([{}]);
 
     useEffect(() => {
-        const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=demo`;
+        const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=IBM&interval=5min&apikey=${API_KEY}`;
         axios.get(url)
         .then(function(res) {
             Object.keys(res.data['Time Series (5min)']).map((i) => {
@@ -34,7 +34,7 @@ function Api() {
                 <YAxis type="number" domain={[130, 150]}/>
                 <Tooltip />
                 <Legend />
-                <Line type="monotone" dataKey="invested" stroke="#8884d8" />
+                <Line dataKey="invested" stroke="#8884d8" dot={false} />
             </LineChart>
         </Card>
     )
