@@ -1,11 +1,10 @@
 import "./App.css";
 import ShowAPI from "./API/Api";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/LoginPage/Login";
 
 function App() {
   return (
     <div className="App">
-      <ShowAPI />
       <LoginPage />
     </div>
   );
