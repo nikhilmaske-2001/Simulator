@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 5000;
-const password = process.env.MONGO_PASSWORD;
+const password = process.env.REACT_APP_MONGO_PASSWORD;
 
-const DB = `mongodb+srv://nikhil:<${password}>@sim.fnq0f.mongodb.net/sim?retryWrites=true&w=majority`
+const DB = `mongodb+srv://nikhil:${password}@sim.fnq0f.mongodb.net/sim?retryWrites=true&w=majority`;
 
 mongoose.connect(DB, {
     useNewUrlParser: true,
