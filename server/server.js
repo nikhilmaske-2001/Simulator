@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const dotenv = require("dotenv");
+const helmet = require("helmet");
+const morgan = require("morgan");
 const app = express();
+const userRoute = require("./routes/users");
+const authRoute = require("./routes/auth");
 
 dotenv.config();
 
@@ -21,13 +25,8 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
-app.get("/", (req, res) => {
-  res.send("Welcome to Home page");
-});
-
-app.get("/users", (req, res) => {
-  res.send("Welcome to users page");
-});
+app.use("/server/users", userRoute);
+app.use("/server/auth", authRoute);
 
 app.listen(8800, () => {
   console.log(`Server is running on port: 8800`);
